@@ -1,4 +1,4 @@
-package cn.cocoder.newsupportlib.demo.ViewModule;
+package cn.cocoder.newsupportlib.demo.JSONBean;
 
 /**
  * Created by xltu on 15/9/15.

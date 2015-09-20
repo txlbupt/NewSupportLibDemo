@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:bind="http://schemas.android.com/apk/res-auto">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
-
-        <variable
-            name="article"
-            type="cn.cocoder.newsupportlib.demo.ViewModule.JSONArticle"/>
-    </data>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_mvp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="MVP"
+        android:textSize="18sp"
+        android:background="@drawable/selector_main"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{article.title}"/>
+    <TextView
+        android:id="@+id/tv_mvvm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVVM"
+        android:textSize="18sp"
+        android:background="@drawable/selector_main"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{article.detail}"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</layout>
+</LinearLayout>

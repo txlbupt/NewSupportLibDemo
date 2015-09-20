@@ -1,40 +1,52 @@
-package cn.cocoder.newsupportlib.demo.mvp.module;
+package cn.cocoder.newsupportlib.demo.mvvm;
 
 import android.databinding.BaseObservable;
 import android.os.AsyncTask;
+import android.view.View;
 
 import cn.cocoder.newsupportlib.demo.JSONBean.JSONArticle;
+import cn.cocoder.newsupportlib.demo.mvp.module.IArticleModule;
+import cn.cocoder.newsupportlib.demo.mvp.module.OnArticleListener;
 
 /**
  * Created by xltu on 15/9/16.
  */
-public class ArticleModule implements IArticleModule{
+public class ArticleViewModule extends BaseObservable {
 
     public String title;
     public String detail;
     public boolean isCollected;
+    public Boolean isLoading;
     private OnArticleListener mListener;
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public String getDetail() {
         return detail;
     }
 
-    @Override
     public boolean getIsCollected() {
         return isCollected;
     }
 
-    @Override
     public void requestArticleFromNet(OnArticleListener listener) {
         mListener = listener;
+        isLoading = true;
+        notifyChange();
         NetworkTask task = new NetworkTask();
         task.execute();
+    }
+
+    public View.OnClickListener requestCollect(){
+        return new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                isCollected = !isCollected;
+                notifyChange();
+            }
+        };
     }
 
     private class NetworkTask extends AsyncTask<String, Void, JSONArticle> {
@@ -57,9 +69,11 @@ public class ArticleModule implements IArticleModule{
             detail = jsonArticle.detail;
             title = jsonArticle.title;
             isCollected = jsonArticle.isCollected;
+            isLoading = false;
             if(mListener != null){
                 mListener.onRequestSuccess();
             }
+            notifyChange();
         }
     }
 

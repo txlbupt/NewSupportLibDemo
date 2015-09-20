@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="cn.cocoder.newsupportlib.demo.mvvm.ArticleViewModule"/>
+        <import type="android.view.View"
+            name="view"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:text="@{article.title}"/>
+
+        <TextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:textColor="#333333"
+            android:text="@{article.detail}"/>
+
+        <ImageView
+            android:id="@+id/iv_collect"
+            android:layout_below="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:onClick="@{article.requestCollect}"
+            android:src="@{article.isCollected ? @drawable/collection_checkbox_true : @drawable/collection_checkbox_false}"/>
+
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{article.isLoading ? View.VISIBLE : View.GONE}"
+            style="@android:style/Widget.ProgressBar.Inverse"/>
+    </RelativeLayout>
+</layout>

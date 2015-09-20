@@ -7,8 +7,8 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="17sp"
+        android:padding="15dp"
+        android:textSize="18sp"
         android:textColor="#333333"/>
 
     <TextView
@@ -16,15 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
-        android:padding="10dp"
-        android:textSize="14sp"
+        android:padding="15dp"
+        android:textSize="15sp"
         android:textColor="#333333"/>
 
     <ImageView
         android:id="@+id/iv_collect"
+        android:layout_below="@+id/tv_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="15dp"/>
 
     <ProgressBar
         android:id="@+id/pb_progress"

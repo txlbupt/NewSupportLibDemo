@@ -9,7 +9,7 @@
         <activity android:name=".activity.MainActivity"
                   android:label="@string/app_name"
                   android:configChanges="orientation"
-                  android:screenOrientation="landscape">
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -18,11 +18,11 @@
         </activity>
 
         <activity android:name=".mvp.activity.MVPActivity"
-                  android:screenOrientation="landscape">
+                  android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.MVVMActivity"
-                  android:screenOrientation="landscape">
+        <activity android:name=".mvvm.MVVMActivity"
+                  android:screenOrientation="portrait">
         </activity>
     </application>
 

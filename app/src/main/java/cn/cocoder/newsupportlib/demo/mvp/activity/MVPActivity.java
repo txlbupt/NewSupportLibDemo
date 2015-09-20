@@ -29,11 +29,11 @@ public class MVPActivity extends Activity implements IView {
         mDetail = (TextView) findViewById(R.id.tv_detail);
         mCollect = (ImageView) findViewById(R.id.iv_collect);
         mProgress = (ProgressBar) findViewById(R.id.pb_progress);
-        if(mPresenter != null) {
+        if(mPresenter == null) {
             mPresenter = new ArticlePresenter();
-            mPresenter.requestFromInternet();
         }
         mPresenter.onTakeView(this);
+        mPresenter.requestFromInternet();
     }
 
     @Override
