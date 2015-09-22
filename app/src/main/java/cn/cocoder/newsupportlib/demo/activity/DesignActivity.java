@@ -15,6 +15,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -31,7 +33,7 @@ import cn.cocoder.newsupportlib.demo.R;
 /**
  * Created by xltu on 15/9/21.
  */
-public class DesignActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DesignActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CoordinatorLayout mCoorDinatorLayout;
     private FloatingActionButton mFloatBtn;
@@ -40,14 +42,24 @@ public class DesignActivity extends FragmentActivity implements NavigationView.O
     private TabLayout mTabLayout;
     private YourPagerAdapter mAdapter;
     private ViewPager mPager;
+    private NavigationView mNavigation;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mCoorDinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator);
         mFloatBtn = (FloatingActionButton) findViewById(R.id.btn_floating);
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
+        mDrawerToggle = new ActionBarDrawerToggle(this,
+                mDrawerLayout,
+                mToolBar,
+                R.string.drawer_open,
+                R.string.drawer_close);
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mAdapter = new YourPagerAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.view_pager);
@@ -67,6 +79,8 @@ public class DesignActivity extends FragmentActivity implements NavigationView.O
                 Snackbar.make(mCoorDinatorLayout, "Snackbar show", Snackbar.LENGTH_SHORT).setAction("DISMISS", null).show();
             }
         });
+        mNavigation = (NavigationView) findViewById(R.id.navigation_drawer);
+        mNavigation.setNavigationItemSelectedListener(this);
     }
 
     @Override
