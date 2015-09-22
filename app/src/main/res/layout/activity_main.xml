@@ -24,5 +24,15 @@
         android:gravity="center"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"/>
+    <TextView
+        android:id="@+id/tv_android_design"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Android Design"
+        android:textSize="18sp"
+        android:background="@drawable/selector_main"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
 
 </LinearLayout>

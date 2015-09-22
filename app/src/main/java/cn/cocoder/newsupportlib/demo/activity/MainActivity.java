@@ -15,7 +15,7 @@ import cn.cocoder.newsupportlib.demo.mvvm.MVVMActivity;
  */
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private TextView mMvp, mMvvm;
+    private TextView mMvp, mMvvm, mDesign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         mMvp = (TextView) findViewById(R.id.tv_mvp);
         mMvvm = (TextView) findViewById(R.id.tv_mvvm);
+        mDesign = (TextView) findViewById(R.id.tv_android_design);
         mMvp.setOnClickListener(this);
         mMvvm.setOnClickListener(this);
+        mDesign.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.tv_mvvm:
                 Intent intent1 = new Intent(this, MVVMActivity.class);
                 startActivity(intent1);
+                break;
+            case R.id.tv_android_design:
+                Intent intent2 = new Intent(this, DesignActivity.class);
+                startActivity(intent2);
+                break;
         }
     }
 }

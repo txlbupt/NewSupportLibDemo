@@ -24,6 +24,9 @@
         <activity android:name=".mvvm.MVVMActivity"
                   android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".activity.DesignActivity"/>
+        <activity android:name=".activity.EditTextActivity"/>
+        <activity android:name=".activity.CollapseActivity"/>
     </application>
 
 </manifest>
